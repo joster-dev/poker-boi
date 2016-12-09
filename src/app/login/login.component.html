@@ -1,0 +1,23 @@
+<div class="container">
+  <h1>Poker Boi</h1>
+  <form (ngSubmit)="onSubmit()" #pbForm="ngForm">
+    <input type="text"
+      required
+      placeholder="Player name"
+      [(ngModel)]="model.name" name="name"/>
+    <button type="button"
+      (click)="create_game(model.name)"
+      [disabled]="model.name == ''">
+      Start Lobby
+    </button>
+    <input type="text"
+      placeholder="Lobby code"
+      [(ngModel)]="model.uuid" name="password"/>
+    <button type="button"
+      (click)="start_game(model.uuid, model.name)"
+      [disabled]="model.uuid == ''">
+      Join Lobby
+    </button>
+  </form>
+  <img src="assets\vault-boy.jpg" style="margin-top: 10px;">
+</div>
