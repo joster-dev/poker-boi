@@ -5,12 +5,13 @@ import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
+import { AppService } from './app.service';
 import { GameComponent } from './game/game.component';
 import { LoginComponent } from './login/login.component';
 
 const appRoutes: Routes = [
   { path: '', component: LoginComponent },
-  { path: 'game', component: GameComponent }
+  { path: 'game/:gameId', component: GameComponent }
 ]
 
 @NgModule({
@@ -25,7 +26,7 @@ const appRoutes: Routes = [
     HttpModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [AppService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

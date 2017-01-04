@@ -3,21 +3,16 @@
   <form (ngSubmit)="onSubmit()" #pbForm="ngForm">
     <input type="text"
       required
-      placeholder="Player name"
+      placeholder="Player Name"
       [(ngModel)]="model.name" name="name"/>
+    <input type="text"
+      required
+      placeholder="Lobby Title"
+      [(ngModel)]="model.title" name="title"/>
     <button type="button"
-      (click)="create_game(model.name)"
-      [disabled]="model.name == ''">
+      (click)="createGame(model.title, model.name)">
       Start Lobby
     </button>
-    <input type="text"
-      placeholder="Lobby code"
-      [(ngModel)]="model.uuid" name="password"/>
-    <button type="button"
-      (click)="start_game(model.uuid, model.name)"
-      [disabled]="model.uuid == ''">
-      Join Lobby
-    </button>
   </form>
-  <img src="assets\vault-boy.jpg" style="margin-top: 10px;">
+  <img src="assets\vault-boy.png" style="margin-top: 10px;">
 </div>
