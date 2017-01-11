@@ -1,17 +1,21 @@
-<div class="container">
+<div>
   <h1>Poker Boi</h1>
-  <form (ngSubmit)="onSubmit()" #pbForm="ngForm">
+  <form (ngSubmit)="createGame(model.title, model.name)" #pbForm="ngForm">
     <input type="text"
       required
-      placeholder="Player Name"
-      [(ngModel)]="model.name" name="name"/>
+      placeholder="Display Name"
+      [(ngModel)]="model.name" name="name"
+      #name="ngModel"
+      [class.invalid]="!name.pristine && !name.valid"/>
     <input type="text"
       required
-      placeholder="Lobby Title"
-      [(ngModel)]="model.title" name="title"/>
-    <button type="button"
-      (click)="createGame(model.title, model.name)">
-      Start Lobby
+      placeholder="Game Title"
+      [(ngModel)]="model.title" name="title"
+      #title="ngModel"
+      [class.invalid]="!title.pristine && !title.valid"/>
+    <button type="submit"
+      [disabled]="!pbForm.form.valid">
+      {{pbForm.form.valid ? 'Start Game' : '&nbsp;'}}
     </button>
   </form>
   <img src="assets\vault-boy.png" style="margin-top: 10px;">

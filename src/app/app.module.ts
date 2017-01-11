@@ -8,6 +8,10 @@ import { AppComponent } from './app.component';
 import { AppService } from './app.service';
 import { GameComponent } from './game/game.component';
 import { LoginComponent } from './login/login.component';
+import { JoinComponent } from './game/join/join.component';
+import { VoteComponent } from './game/vote/vote.component';
+import { AdminComponent } from './game/admin/admin.component';
+import { StageComponent } from './game/stage/stage.component';
 
 const appRoutes: Routes = [
   { path: '', component: LoginComponent },
@@ -18,7 +22,11 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     GameComponent,
-    LoginComponent
+    LoginComponent,
+    JoinComponent,
+    VoteComponent,
+    AdminComponent,
+    StageComponent
   ],
   imports: [
     BrowserModule,
